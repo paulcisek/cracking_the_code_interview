@@ -9,7 +9,7 @@ func uniqString(strToBeChecked string) bool {
 	stringLength := len(strToBeChecked)
 	for i := 0; i < stringLength; i++ {
 		testedChar := strToBeChecked[i]
-		for j := 0; j < stringLength; j++ {
+		for j := i + 1; j < stringLength; j++ {
 			if (testedChar == strToBeChecked[j]) && (i != j) {
 				return false
 			}

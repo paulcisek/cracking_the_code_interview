@@ -19,7 +19,7 @@ bool unique_string(char* str){
     int array_size = (int)strlen(str);
     for (int i = 0; i < array_size; i++) {
         char test_char = str[i];
-        for (int j = 0; j < array_size; j++) {
+        for (int j = i+1; j < array_size; j++) {
             if (test_char == str[j] && i != j){
                 return false;
             }
