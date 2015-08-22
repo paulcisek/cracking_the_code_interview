@@ -12,12 +12,20 @@ func main() {
 }
 
 func isPermutation(string1, string2 string) bool {
-	stringMap := make(map[rune]bool)
+	if len(string1) != len(string2) {
+		return false
+	}
+	stringMap := make(map[rune]int)
 	for _, element := range string1 {
-		stringMap[element] = true
+		stringMap[element] = stringMap[element] + 1
 	}
 	for _, element := range string2 {
-		if !stringMap[element] {
+		if stringMap[element] {
+			if stringMap[element] == 0 {
+				return false
+			}
+			stringMap[element] = stringMap[element] - 1
+		} else {
 			return false
 		}
 	}
